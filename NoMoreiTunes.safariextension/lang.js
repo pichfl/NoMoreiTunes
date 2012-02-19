@@ -94,14 +94,13 @@ NoMoreItunes.lang = {
 	'sv': {
 		'itunes': {
 			'info': 'NoMoreiTunes hindrade denna sida från att öppna iTunes',
-			//'info': 'NoMoreiTunes hindrade denna sida från att öppnas i iTunes',
 			'launch': 'Öppna i iTunes',
 			'click': 'Klicka <span>här</span> för att öppna iTunes.'
 		},
 		'appstore': {
-			'info': 'NoMoreiTunes prevented this page from launching the AppStore',
-			'launch': 'Open the AppStore',
-			'click': 'Click <span>here</span> to open the AppStore'
+			'info': 'NoMoreiTunes hindrade denna sida från att öppna App Store',
+			'launch': 'Öppna i App Store',
+			'click': 'Klicka <span>här</span> för att öppna App Store.'
 		}
 	},
 	// By Łukasz Handke, lukasz.handke@gmail.com
