@@ -90,7 +90,7 @@ NoMoreItunes.lang = {
 			'click': 'Click <span>here</span> to open the AppStore'
 		}
 	},
-	//By Oscar Palmer, http://oscarismy.name/
+	//By Oscar Palmér, http://oscarismy.name/
 	'sv': {
 		'itunes': {
 			'info': 'NoMoreiTunes hindrade denna sida från att öppna iTunes',
