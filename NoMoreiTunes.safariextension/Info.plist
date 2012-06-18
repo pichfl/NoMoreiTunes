@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Florian Pichler</string>
 	<key>Builder Version</key>
-	<string>7534.53.10</string>
+	<string>8536.16</string>
 	<key>CFBundleDisplayName</key>
 	<string>NoMoreiTunes</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.15</string>
+	<string>2.2</string>
 	<key>CFBundleVersion</key>
-	<string>215</string>
+	<string>220</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -33,7 +33,6 @@
 			<key>Start</key>
 			<array>
 				<string>mootools-core-1.3.2-full-nocompat-yc.js</string>
-				<string>lang.js</string>
 				<string>startScript.js</string>
 			</array>
 		</dict>

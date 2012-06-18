@@ -7,7 +7,7 @@
 	Apple's Preview websites from launching iTunes.
 	Developed after an idea from Wolfgang Klatt.
 
-	Online: http://einserver.de/extensions#nomoreitunes
+	Online: http://nomoreitunes.einserver.de
 	Contact: pichfl@einserver.de
 	
 	(c)2010-2011, Florian Pichler, All rights reserved
@@ -17,121 +17,325 @@
 
 */
 
-var lang = NoMoreItunes.lang,
-closeOnButtonClick = false;
-
-if(Cookie.read('disableAutoLaunch') != 1){
-	var a = new Date();
-	a.setTime(a.getTime()+300000);
-	Cookie.write('disableAutoLaunch', 1, {
-		'duration': 0.0034,
-		'path': '/',
-		'domain': 'itunes.apple.com'
-	});
-}
-
-safari.self.addEventListener("message", function(event) {
-	if (event.name === 'setNoMoreItunesSettings') {
-		closeOnButtonClick = event.message;
-	}
-}, false);
-safari.self.tab.dispatchMessage('getNoMoreItunesSettings');
-
-window.addEvent('domready', function() {
-	var body = $(document.body),
-	bl = navigator.language.substr(0,2),
-	cl = 'en',
-	bodyOnload = body.getProperty('onload'), 
-	url = bodyOnload.toString().clean(),
-	appStore = (url === 'detectAndOpenMacAppStore();'),
-	newUrl = url,
-	langStrings,
-	bar,
-	openiTunes = function() {
-		newUrl = url.match(/(?:openItunes\(')(http|itms)(.*)(?:'\);)/) || 
-					url.match(/(?:itmsOpen\(')(http|itms)(.*)(?:','http)/);
-
-		newUrl = "itms"+newUrl[2];
-		var hashIndex = newUrl.indexOf("#");
-		if (hashIndex > -1) {
-			newUrl = newUrl.substring(0, hashIndex);
-		}
-		window.location.replace(newUrl);
-		$(body).removeClass('shownomoreitunesbar');
-		closeWindow();
-	},
-	closeWindow = function() {
-		if (closeOnButtonClick) {
-			(function() {
-				close();
-				console.log('NoMoreiTunes tried to close this window.');
-			}).delay(100);
-		}
-	};
-
-	for (var i in lang) { if (i == bl) { cl = i; } }
-	body.addClass(cl);
-
-	langStrings = lang[cl][(appStore)?'appstore':'itunes'];
-
-	body.removeProperty('onload');
+;(function(win,doc) {
 	
-	if ($$('.loadingbox .roundtop')) {
-		body.addClass('remove-border');
+	// Some helpers
+	function $(sel) {
+		var ret = doc.querySelectorAll(sel)
+		return ret[0]
 	}
-
-	bar = new Element('div', {
-		'id': 'nomoreitunes',
-		'class': 'bar',
-		'html': '<div>{info}</div>'.substitute(langStrings)
-	}).inject(body);
 	
-	var buttonTemp = $$('#left-stack a.action');
-	if (buttonTemp && buttonTemp[0]) {
-		button = buttonTemp[0].clone().inject(bar).setProperty('id','launch');
-		button.set('html',langStrings.launch);
-		button.addEvent('click', closeWindow);
-	} else {
-		button = new Element('div#launch', {
-			'html': langStrings.launch,
-			'events': {
-				'click': openiTunes
+	function $$(sel) {
+		return doc.querySelectorAll(sel)
+	}
+	
+	var forEach = Array.prototype.forEach;  
+
+	// Start extension code
+	var NoMoreiTunes = NoMoreiTunes || {}
+
+	// language strings
+	NoMoreiTunes.lang = {
+		// Defaults
+		'en': {
+			'itunes': {
+				'info': 'NoMoreiTunes prevented this page from launching iTunes',
+				'launch': 'Open in iTunes',
+				'click': 'Click <span>here</span> to open iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
 			}
-		}).inject(bar);
-		body.addClass('oldschool');
+		},
+		// By Florian Pichler, florianpichler.de
+		'de': {
+			'itunes': {
+				'info': 'NoMoreiTunes hat diese Seite am Öffnen von iTunes gehindert',
+				'launch': 'In iTunes öffnen',
+				'click': '<span>Hier</span> klicken um iTunes zu öffnen.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes hat diese Seite am Öffnen vom AppStore gehindert',
+				'launch': 'Im AppStore öffnen',
+				'click': '<span>Hier</span> klicken um den AppStore zu öffnen'
+			}
+		},
+		// By Alfred Brose, alfred.brose@bcmsolutions.de
+		'ru': {
+			'itunes': {
+				'info': 'NoMoreiTunes предотвратило открытие этой страницы',
+				'launch': 'Открыть в iTunes',
+				'click': 'Нажмите <span>здесь</span> чтобы открыть iTunes'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		// By Giancarlo Nicolof, http://web.me.com/giancarlon/
+		'it': {
+			'itunes': {
+				'info': 'NoMoreiTunes ha impedito a questa pagina di aprire iTunes',
+				'launch': 'Apri in iTunes',
+				'click': 'Cliccare <span>qui</span> per aprire iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		// By Amine Benboubker, http://aminebenboubker.com/
+		'fr': {
+			'itunes': {
+				'info': 'NoMoreiTunes a empêché cette page de lancer iTunes',
+				'launch': 'Ouvrir dans iTunes',
+				'click': 'Cliquez <span>ici</span> pour ouvrir iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		// By Christoph Theel
+		'es': {
+			'itunes': {
+				'info': 'NoMoreiTunes impidió a esta página de lanzar iTunes',
+				'launch': 'Abrir en iTunes',
+				'click': 'Haga clic <span>aqui</span> para abrir iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		'pt' : {
+			'itunes': {
+				'info': 'NoMoreiTunes impediu esta página de lançar iTunes',
+				'launch': 'Abra o iTunes',
+				'click': 'Clique <span>aqui</span> para abrir o iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		//By Oscar Palmér, http://oscarismy.name/
+		'sv': {
+			'itunes': {
+				'info': 'NoMoreiTunes hindrade denna sida från att öppna iTunes',
+				'launch': 'Öppna i iTunes',
+				'click': 'Klicka <span>här</span> för att öppna iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes hindrade denna sida från att öppna App Store',
+				'launch': 'Öppna i App Store',
+				'click': 'Klicka <span>här</span> för att öppna App Store.'
+			}
+		},
+		// By Łukasz Handke, lukasz.handke@gmail.com
+		'pl': {
+			'itunes': {
+				'info': 'NoMoreiTunes uniemożliwił tej stronie automatyczne otwarcie iTunes',
+				'launch': 'Otwórz w iTunes',
+				'click': 'Kliknij <span>tutaj</span> by otworzyć iTunes.',
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		// By Zhusee Zhang
+		'zh': {
+			'itunes': {
+				'info': 'NoMoreiTunes 阻止了這個網頁自動打開 iTunes',
+				'launch': '在 iTunes 中開啟',
+				'click': '請點<span>這裡</span>來打開 iTunes。',
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		},
+		// By Daniel Göstenmeier, http://goestenmeier.com/
+		'nl': {
+			'itunes': {
+				'info': 'NoMoreiTunes verhindert deze pagina om iTunes te openen',
+				'launch': 'Open in iTunes',
+				'click': 'Click <span>hier</span> om iTunes te openen.',
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes prevented this page from launching the AppStore',
+				'launch': 'Open the AppStore',
+				'click': 'Click <span>here</span> to open the AppStore'
+			}
+		
+		},
+		// By Johan K. Jensen, @Josso000
+		'da': {
+			'itunes': {
+				'info': 'NoMoreiTunes stoppede denne side i at åbne iTunes',
+				'launch': 'Åben i iTunes',
+				'click': 'Klik <span>her</span> for at åbne iTunes.'
+			},
+			'appstore': {
+				'info': 'NoMoreiTunes stoppede denne side i at åbne AppStoren',
+				'launch': 'Åben AppStoren',
+				'click': 'Klik <span>her</span> for at åbne AppStoren'
+			}
+		}
+		/* ,
+		'': {
+			'itunes': {
+				'info': '',
+				'launch': '',
+				'click': ''
+			}
+			'appstore': {
+				'info': '',
+				'launch': '',
+				'click': ''
+			}
+		}
+		*/
 	}
+	
+	// Get extension settings
+	NoMoreiTunes.tryClosingWindow = false
+	safari.self.addEventListener('message', function(event) {
+		if (event.name === 'setNoMoreiTunesSettings') {
+			NoMoreiTunes.tryClosingWindow = event.message
+		}
+	}, false)
+	safari.self.tab.dispatchMessage('getNoMoreiTunesSettings')
 
-	window.addEvent('load', function() {
-		(function() {
-			document.body.parentNode.className = 'shownomoreitunesbar';
-		}).delay(500);
-	});
+	if (Cookie.read('disableAutoLaunch') != 1) {
+		var a = new Date();
+		a.setTime(a.getTime()+300000);
+		Cookie.write('disableAutoLaunch', 1, {
+			'duration': 0.0034,
+			'path': '/',
+			'domain': 'itunes.apple.com'
+		})
+	}
+	
+	win.addEventListener('DOMContentLoaded', function() {
 
-	var userOverride = $('userOverridePanel') || $$('.loadingbox .roundtop');
-	if (userOverride) {
-		$$('.roundtop, .roundbot, style').destroy();
-		body.addClass('hide');
-		if (body.getElement('table.info')) {
-			body.addClass('hideloading');
+		var bl = navigator.language.substr(0,2)
+		,	bodyOnload = doc.body.attributes.getNamedItem('onload')
+		, 	url = bodyOnload.value.clean()
+		,	appStore = (url === 'detectAndOpenMacAppStore();')
+		,	itunesStore = (url === 'detectAndOpenItunes();')
+
+		doc.body.attributes.removeNamedItem('onload')
+
+		var matchedUrl
+		,	launchButton = false
+		if (appStore || itunesStore) {	
+			var launchButton = $('#left-stack a.action')
+			,	newUrl = launchButton.attributes.getNamedItem('onclick')
+			,	url = newUrl.value
+			
+			matchedUrl = url.match(/(?:return .*\(')(?:http|itms)(.*)(?:'\);)/)
 		} else {
-			var sub = body.getElement('p.subtitle');
-			if (sub) {
-				sub.set('html', sub.get('html')+' '+langStrings.click);
-				body.addClass('hidetitle');
+			matchedUrl = url.match(/(?:openItunes\(')(?:http|itms)(.*)(?:'\);)/) 
+				      || url.match(/(?:itmsOpen\(')(?:http|itms)(.*)(?:','http)/)
+		}
+		
+		if (matchedUrl) {
+			var prefix = (appStore)?'macappstore':"itms"
+			,	newUrl = prefix + matchedUrl[1]
+			,	unhashedUrl = newUrl.split('#')
+			
+			url = unhashedUrl[0]
+		}
+
+		function closeWindow() {
+			if (NoMoreiTunes.tryClosingWindow) {
+				setTimeout(function() {
+					close()
+					console.log('NoMoreiTunes tried to close this window.')
+				}, 100)
 			}
 		}
-		var lb = body.getElement('.loadingbox');
-		if (lb) {
-			lb.addEvent('click', openiTunes);
+
+		function openStore() {
+			if (url != '') {
+				doc.body.classList.remove('shownomoreitunesbar')
+				win.location.replace(url)
+				closeWindow()
+			}
 		}
-	} else {
-		var a = body.getElement('.intro p:last-child');
-		if (a) a.destroy();
-	}
-	if (body.getElement('.info')) {
-		new Element('p', {
-			'class': 'clickhere',
-			'html': langStrings.launch
-		}).replaces(body.getElement('clear'));
-	}
-});
+
+		// set language
+		var clientLanguage = 'en'
+		,	currentLang
+		for (currentLang in NoMoreiTunes.lang) { 
+			if (currentLang == bl) { 
+				clientLanguage = currentLang
+			}
+		}
+		doc.body.classList.add(clientLanguage)
+		var langStrings = NoMoreiTunes.lang[clientLanguage][(appStore)?'appstore':'itunes']
+
+		if ($('.loadingbox .roundtop')) {
+			doc.body.classList.add('remove-border')
+		}
+
+		var bar = new Element('div', {
+			'id': 'nomoreitunes',
+			'class': 'bar',
+			'html': '<div>' + langStrings.info + '</div>'
+						+ '<div id="launch">' + langStrings.launch + '</div>'
+		}).inject(doc.body)
+	
+		if (!launchButton) {
+			doc.body.classList.add('oldschool')
+		}
+		
+		$('#nomoreitunes #launch').addEventListener('click', openStore, false)
+
+		win.addEventListener('load', function() {
+			setTimeout(function() {
+				doc.documentElement.classList.add('shownomoreitunesbar')
+			}, 500)
+		}, false)
+
+		var userOverride = $('#userOverridePanel, .loadingbox .roundtop')
+
+		if (userOverride) {
+			forEach.call($$('.roundtop, .roundbot, style, center, p.footer'), function(el){
+				el.parentNode.removeChild(el)
+			})
+
+			doc.body.classList.add('hide')
+			if ($('table.info')) {
+				doc.body.classList.add('hideloading')
+			} else {
+				var sub = $('p.subtitle')
+				if (sub) {
+					sub.set('html', sub.get('html')+' '+langStrings.click);
+					doc.body.classList.add('hidetitle')
+				}
+			}
+			var lb = $('.loadingbox');
+			if (lb) {
+				lb.addEvent('click', openStore);
+			}
+		} else {
+			var a = $('.intro p:last-child')
+			if (a) {
+				a.destroy()
+			}
+		}
+	}, false)
+
+}(window, document))
