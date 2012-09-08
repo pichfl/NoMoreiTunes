@@ -29,10 +29,60 @@
 		return doc.querySelectorAll(sel);
 	}
 
+	function stringClean(str) {
+		return str.replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
+	}
+
+	function disposeElement(el) {
+		return (el.parentNode) ? el.parentNode.removeChild(el) : el;
+	}
+
 	var forEach = Array.prototype.forEach;
 
 	// Start extension code
 	var NoMoreiTunes = NoMoreiTunes || {};
+
+	Cookie = {
+		path: '/',
+		domain: 'false',
+		duration: false,
+		secure: false,
+		document: document,
+		encode: true
+	};
+
+	Cookie.write = function(key, value, options) {
+		value = encodeURIComponent(value);
+		var d = options.document || this.document;
+
+		var domain = options.domain || this.domain;
+		if (domain) {
+			value += '; domain=' + domain;
+		}
+
+		var path = options.path || this.path;
+		if (path) {
+			value += '; path=' + path;
+		}
+
+		var duration = options.duration || this.duration;
+		if (duration) {
+			var date = new Date();
+			date.setTime(date.getTime() + duration * 24 * 60 * 60 * 1000);
+			value += '; expires=' + date.toGMTString();
+		}
+
+		if (options.secure || this.secure) {
+			value += '; secure';
+			d.cookie = key + '=' + value;
+		}
+	};
+
+	Cookie.read = function(key) {
+		var escapedKey = key.replace(/(\[-.*\+?^$\{\}()|[\]\/\\])/g, '\\$1');
+		var value = this.document.cookie.match('(?:^|;)\\s*' + escapedKey + '=([^;]*)');
+		return (value) ? decodeURIComponent(value[1]) : null;
+	};
 
 	// language strings
 	NoMoreiTunes.lang = {
@@ -229,7 +279,6 @@
 		a.setTime(a.getTime()+300000);
 		Cookie.write('disableAutoLaunch', 1, {
 			'duration': 0.0034,
-			'path': '/',
 			'domain': 'itunes.apple.com'
 		});
 	}
@@ -266,7 +315,8 @@
 	win.addEventListener('DOMContentLoaded', function() {
 
 		bodyOnload = doc.body.attributes.getNamedItem('onload');
-		url = bodyOnload.value.clean();
+
+		url = stringClean(bodyOnload.value);
 
 		var bl = navigator.language.substr(0,2),
 			appStore = (url === 'detectAndOpenMacAppStore();'),
@@ -315,11 +365,13 @@
 			doc.body.classList.add('remove-border');
 		}
 
-		bar = new Element('div', {
-			'id': 'nomoreitunes',
-			'class': 'bar',
-			'html': '<div>' + langStrings.info + '</div>' + '<div id="launch">' + langStrings.launch + '</div>'
-		}).inject(doc.body);
+		bar = doc.createElement('div');
+		bar.id = 'nomoreitunes';
+		bar.className = 'bar';
+		bar.innerHTML = '<div>' + langStrings.info + '</div>' + '<div id="launch">' + langStrings.launch + '</div>';
+
+		doc.body.appendChild(bar);
+
 
 		if (!launchButton) {
 			doc.body.classList.add('oldschool');
@@ -353,12 +405,12 @@
 			}
 			var lb = $('.loadingbox');
 			if (lb) {
-				lb.addEvent('click', openStore);
+				lb.addEventListener('click', openStore, false);
 			}
 		} else {
 			var a = $('.intro p:last-child');
 			if (a) {
-				a.destroy();
+				disposeElement(a);
 			}
 		}
 	}, false);

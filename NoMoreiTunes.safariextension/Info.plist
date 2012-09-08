@@ -32,7 +32,6 @@
 		<dict>
 			<key>Start</key>
 			<array>
-				<string>mootools-core-1.3.2-full-nocompat-yc.js</string>
 				<string>startScript.js</string>
 			</array>
 		</dict>
