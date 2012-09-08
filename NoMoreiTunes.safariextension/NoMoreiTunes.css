@@ -134,9 +134,10 @@ html body div#nomoreitunes.bar{
 	border-bottom: 1px solid #bfbfbf !important;
 	color: #737373 !important;
 	z-index: 999999;
-	-webkit-transition: top linear 500ms;
+	-webkit-transition: all linear 500ms;
 	pointer-events:none !important;
-	-webkit-box-shadow: 0 1px 15px rgba(0,0,0,0.3);}
+	-webkit-box-shadow: 0 1px 15px rgba(0,0,0,0.3);
+	opacity: 0}
 
 html body div#nomoreitunes.bar>div{
 	position: relative !important;
@@ -197,4 +198,5 @@ body.oldschool{
 	top: 0 !important;}*/
 
 .shownomoreitunesbar div#nomoreitunes.bar{
-	top: 0 !important;}
+	top: 0 !important;
+	opacity: 1 !important; }

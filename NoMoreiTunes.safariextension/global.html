@@ -2,19 +2,22 @@
 <html>
 <head>
 <script>
-	var x;
+	var eventPage
 	safari.application.addEventListener('message',function(event) {
-		if (event.name === "getNoMoreItunesSettings") {
-			var a = safari.extension.settings.closeOnLaunch;
-			x = event.target.page;
-			x.dispatchMessage('setNoMoreItunesSettings', a);
+		if (event.name === "getNoMoreiTunesSettings") {
+			eventPage = event.target.page
+			eventPage.dispatchMessage('setNoMoreItunesCloseOnLaunch', safari.extension.settings.closeOnLaunch)
+			eventPage.dispatchMessage('setNoMoreItunesHideToolbar', safari.extension.settings.hideToolbar)
 	    }
-	},false);
+	},false)
 	safari.extension.settings.addEventListener('change', function(event) {
-		if (event.key === 'closeOnLaunch' && x) {
-			x.dispatchMessage('setNoMoreItunesSettings', event.newValue);
+		if (event.key === 'closeOnLaunch' && eventPage) {
+			eventPage.dispatchMessage('setNoMoreItunesCloseOnLaunch', event.newValue)
 		}
-	}, false);
+		if (event.key === 'hideToolbar' && eventPage) {
+			eventPage.dispatchMessage('setNoMoreItunesHideToolbar', event.newValue)
+		}
+	}, false)
 </script>
 </head>
 <body>

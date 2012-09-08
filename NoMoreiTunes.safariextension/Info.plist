@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Florian Pichler</string>
 	<key>Builder Version</key>
-	<string>8536.16</string>
+	<string>8536.25</string>
 	<key>CFBundleDisplayName</key>
 	<string>NoMoreiTunes</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2</string>
+	<string>2.21</string>
 	<key>CFBundleVersion</key>
-	<string>220</string>
+	<string>221</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
