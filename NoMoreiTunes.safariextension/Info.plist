@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Florian Pichler</string>
 	<key>Builder Version</key>
-	<string>8536.25</string>
+	<string>8536.26.14</string>
 	<key>CFBundleDisplayName</key>
 	<string>NoMoreiTunes</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.3</string>
+	<string>2.3.1</string>
 	<key>CFBundleVersion</key>
-	<string>230</string>
+	<string>231</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -25,8 +25,8 @@
 	<dict>
 		<key>Blacklist</key>
 		<array>
-			<string>https://buy.itunes.apple.com/*</string>
 			<string>http://buy.itunes.apple.com/*</string>
+			<string>https://buy.itunes.apple.com/*</string>
 		</array>
 		<key>Scripts</key>
 		<dict>
@@ -45,6 +45,10 @@
 			<string>http://phobos.apple.com/*</string>
 			<string>http://*.itunes.apple.com/*</string>
 			<string>http://*.phobos.apple.com/*</string>
+			<string>https://itunes.apple.com/*</string>
+			<string>https://phobos.apple.com/*</string>
+			<string>https://*.itunes.apple.com/*</string>
+			<string>https://*.phobos.apple.com/*</string>
 		</array>
 	</dict>
 	<key>Description</key>
