@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		730496DF2129B41F002D928F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 730496DD2129B41F002D928F /* .gitignore */; };
+		730496E02129B41F002D928F /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 730496DE2129B41F002D928F /* README.markdown */; };
+		735DBCCA21271A9D000EB6D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 735DBCC921271A9D000EB6D7 /* AppDelegate.m */; };
+		735DBCCC21271A9E000EB6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735DBCCB21271A9E000EB6D7 /* Assets.xcassets */; };
+		735DBCCF21271A9E000EB6D7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735DBCCD21271A9E000EB6D7 /* MainMenu.xib */; };
+		735DBCD221271A9E000EB6D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 735DBCD121271A9E000EB6D7 /* main.m */; };
+		735DBCE021271AB4000EB6D7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735DBCDF21271AB4000EB6D7 /* Cocoa.framework */; };
+		735DBCE421271AB4000EB6D7 /* SafariExtensionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 735DBCE321271AB4000EB6D7 /* SafariExtensionHandler.m */; };
+		735DBCED21271AB4000EB6D7 /* injected.js in Resources */ = {isa = PBXBuildFile; fileRef = 735DBCEC21271AB4000EB6D7 /* injected.js */; };
+		735DBCF321271AB4000EB6D7 /* NoMoreiTunesSafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 735DBCDD21271AB4000EB6D7 /* NoMoreiTunesSafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73FE0A1921289EB000CE08F4 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FE0A1821289EB000CE08F4 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		735DBCF121271AB4000EB6D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 735DBCBD21271A9D000EB6D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 735DBCDC21271AB4000EB6D7;
+			remoteInfo = NoMoreiTunesSafariExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		735DBCF721271AB4000EB6D7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				735DBCF321271AB4000EB6D7 /* NoMoreiTunesSafariExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		730496DD2129B41F002D928F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		730496DE2129B41F002D928F /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		735DBCC521271A9D000EB6D7 /* NoMoreiTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoMoreiTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		735DBCC821271A9D000EB6D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		735DBCC921271A9D000EB6D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		735DBCCB21271A9E000EB6D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		735DBCCE21271A9E000EB6D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		735DBCD021271A9E000EB6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		735DBCD121271A9E000EB6D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		735DBCD321271A9E000EB6D7 /* NoMoreiTunes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoMoreiTunes.entitlements; sourceTree = "<group>"; };
+		735DBCDD21271AB4000EB6D7 /* NoMoreiTunesSafariExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NoMoreiTunesSafariExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		735DBCDF21271AB4000EB6D7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		735DBCE221271AB4000EB6D7 /* SafariExtensionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariExtensionHandler.h; sourceTree = "<group>"; };
+		735DBCE321271AB4000EB6D7 /* SafariExtensionHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafariExtensionHandler.m; sourceTree = "<group>"; };
+		735DBCEB21271AB4000EB6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		735DBCEC21271AB4000EB6D7 /* injected.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = injected.js; sourceTree = "<group>"; };
+		735DBCF021271AB4000EB6D7 /* NoMoreiTunesSafariExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoMoreiTunesSafariExtension.entitlements; sourceTree = "<group>"; };
+		73FE0A1721289EB000CE08F4 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		73FE0A1821289EB000CE08F4 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		735DBCC221271A9D000EB6D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735DBCDA21271AB4000EB6D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735DBCE021271AB4000EB6D7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		730496E12129B42A002D928F /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				730496DE2129B41F002D928F /* README.markdown */,
+				730496DD2129B41F002D928F /* .gitignore */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		7324521F21289891004CF27D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				735DBCEB21271AB4000EB6D7 /* Info.plist */,
+				735DBCF021271AB4000EB6D7 /* NoMoreiTunesSafariExtension.entitlements */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		7324522221289BC9004CF27D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				735DBCD021271A9E000EB6D7 /* Info.plist */,
+				735DBCCB21271A9E000EB6D7 /* Assets.xcassets */,
+				735DBCD321271A9E000EB6D7 /* NoMoreiTunes.entitlements */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		735DBCBC21271A9D000EB6D7 = {
+			isa = PBXGroup;
+			children = (
+				735DBCC721271A9D000EB6D7 /* NoMoreiTunes */,
+				735DBCE121271AB4000EB6D7 /* NoMoreiTunesSafariExtension */,
+				730496E12129B42A002D928F /* Misc */,
+				735DBCDE21271AB4000EB6D7 /* Frameworks */,
+				735DBCC621271A9D000EB6D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		735DBCC621271A9D000EB6D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				735DBCC521271A9D000EB6D7 /* NoMoreiTunes.app */,
+				735DBCDD21271AB4000EB6D7 /* NoMoreiTunesSafariExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		735DBCC721271A9D000EB6D7 /* NoMoreiTunes */ = {
+			isa = PBXGroup;
+			children = (
+				7324522221289BC9004CF27D /* Misc */,
+				735DBCCD21271A9E000EB6D7 /* MainMenu.xib */,
+				735DBCC921271A9D000EB6D7 /* AppDelegate.m */,
+				735DBCC821271A9D000EB6D7 /* AppDelegate.h */,
+				73FE0A1821289EB000CE08F4 /* PFMoveApplication.m */,
+				73FE0A1721289EB000CE08F4 /* PFMoveApplication.h */,
+				735DBCD121271A9E000EB6D7 /* main.m */,
+			);
+			path = NoMoreiTunes;
+			sourceTree = "<group>";
+		};
+		735DBCDE21271AB4000EB6D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				735DBCDF21271AB4000EB6D7 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		735DBCE121271AB4000EB6D7 /* NoMoreiTunesSafariExtension */ = {
+			isa = PBXGroup;
+			children = (
+				735DBCEC21271AB4000EB6D7 /* injected.js */,
+				735DBCE321271AB4000EB6D7 /* SafariExtensionHandler.m */,
+				735DBCE221271AB4000EB6D7 /* SafariExtensionHandler.h */,
+				7324521F21289891004CF27D /* Misc */,
+			);
+			path = NoMoreiTunesSafariExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		735DBCC421271A9D000EB6D7 /* NoMoreiTunes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735DBCD621271A9E000EB6D7 /* Build configuration list for PBXNativeTarget "NoMoreiTunes" */;
+			buildPhases = (
+				735DBCC121271A9D000EB6D7 /* Sources */,
+				735DBCC221271A9D000EB6D7 /* Frameworks */,
+				735DBCC321271A9D000EB6D7 /* Resources */,
+				735DBCF721271AB4000EB6D7 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				735DBCF221271AB4000EB6D7 /* PBXTargetDependency */,
+			);
+			name = NoMoreiTunes;
+			productName = NoMoreiTunes;
+			productReference = 735DBCC521271A9D000EB6D7 /* NoMoreiTunes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		735DBCDC21271AB4000EB6D7 /* NoMoreiTunesSafariExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 735DBCF421271AB4000EB6D7 /* Build configuration list for PBXNativeTarget "NoMoreiTunesSafariExtension" */;
+			buildPhases = (
+				735DBCD921271AB4000EB6D7 /* Sources */,
+				735DBCDA21271AB4000EB6D7 /* Frameworks */,
+				735DBCDB21271AB4000EB6D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NoMoreiTunesSafariExtension;
+			productName = NoMoreiTunesSafariExtension;
+			productReference = 735DBCDD21271AB4000EB6D7 /* NoMoreiTunesSafariExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		735DBCBD21271A9D000EB6D7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Jared Furlow";
+				TargetAttributes = {
+					735DBCC421271A9D000EB6D7 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					735DBCDC21271AB4000EB6D7 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 735DBCC021271A9D000EB6D7 /* Build configuration list for PBXProject "NoMoreiTunes" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 735DBCBC21271A9D000EB6D7;
+			productRefGroup = 735DBCC621271A9D000EB6D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				735DBCC421271A9D000EB6D7 /* NoMoreiTunes */,
+				735DBCDC21271AB4000EB6D7 /* NoMoreiTunesSafariExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		735DBCC321271A9D000EB6D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735DBCCC21271A9E000EB6D7 /* Assets.xcassets in Resources */,
+				730496DF2129B41F002D928F /* .gitignore in Resources */,
+				730496E02129B41F002D928F /* README.markdown in Resources */,
+				735DBCCF21271A9E000EB6D7 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735DBCDB21271AB4000EB6D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735DBCED21271AB4000EB6D7 /* injected.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		735DBCC121271A9D000EB6D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735DBCD221271A9E000EB6D7 /* main.m in Sources */,
+				735DBCCA21271A9D000EB6D7 /* AppDelegate.m in Sources */,
+				73FE0A1921289EB000CE08F4 /* PFMoveApplication.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		735DBCD921271AB4000EB6D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735DBCE421271AB4000EB6D7 /* SafariExtensionHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		735DBCF221271AB4000EB6D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 735DBCDC21271AB4000EB6D7 /* NoMoreiTunesSafariExtension */;
+			targetProxy = 735DBCF121271AB4000EB6D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		735DBCCD21271A9E000EB6D7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				735DBCCE21271A9E000EB6D7 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		735DBCD421271A9E000EB6D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		735DBCD521271A9E000EB6D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		735DBCD721271A9E000EB6D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoMoreiTunes/NoMoreiTunes.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NoMoreiTunes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.jdf2.NoMoreiTunes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		735DBCD821271A9E000EB6D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoMoreiTunes/NoMoreiTunes.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NoMoreiTunes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.jdf2.NoMoreiTunes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		735DBCF521271AB4000EB6D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NoMoreiTunesSafariExtension/NoMoreiTunesSafariExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NoMoreiTunesSafariExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.jdf2.NoMoreiTunes.NoMoreiTunesSafariExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		735DBCF621271AB4000EB6D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NoMoreiTunesSafariExtension/NoMoreiTunesSafariExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NoMoreiTunesSafariExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.jdf2.NoMoreiTunes.NoMoreiTunesSafariExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		735DBCC021271A9D000EB6D7 /* Build configuration list for PBXProject "NoMoreiTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735DBCD421271A9E000EB6D7 /* Debug */,
+				735DBCD521271A9E000EB6D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735DBCD621271A9E000EB6D7 /* Build configuration list for PBXNativeTarget "NoMoreiTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735DBCD721271A9E000EB6D7 /* Debug */,
+				735DBCD821271A9E000EB6D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		735DBCF421271AB4000EB6D7 /* Build configuration list for PBXNativeTarget "NoMoreiTunesSafariExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				735DBCF521271AB4000EB6D7 /* Debug */,
+				735DBCF621271AB4000EB6D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 735DBCBD21271A9D000EB6D7 /* Project object */;
+}
