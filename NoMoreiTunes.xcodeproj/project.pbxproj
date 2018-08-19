@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		730496DF2129B41F002D928F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 730496DD2129B41F002D928F /* .gitignore */; };
 		730496E02129B41F002D928F /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 730496DE2129B41F002D928F /* README.markdown */; };
+		730496E32129F956002D928F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 730496E22129F956002D928F /* LICENSE */; };
 		735DBCCA21271A9D000EB6D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 735DBCC921271A9D000EB6D7 /* AppDelegate.m */; };
 		735DBCCC21271A9E000EB6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735DBCCB21271A9E000EB6D7 /* Assets.xcassets */; };
 		735DBCCF21271A9E000EB6D7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735DBCCD21271A9E000EB6D7 /* MainMenu.xib */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		730496DD2129B41F002D928F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		730496DE2129B41F002D928F /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		730496E22129F956002D928F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		735DBCC521271A9D000EB6D7 /* NoMoreiTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoMoreiTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735DBCC821271A9D000EB6D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		735DBCC921271A9D000EB6D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		730496E12129B42A002D928F /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				730496E22129F956002D928F /* LICENSE */,
 				730496DE2129B41F002D928F /* README.markdown */,
 				730496DD2129B41F002D928F /* .gitignore */,
 			);
@@ -250,6 +253,7 @@
 				730496DF2129B41F002D928F /* .gitignore in Resources */,
 				730496E02129B41F002D928F /* README.markdown in Resources */,
 				735DBCCF21271A9E000EB6D7 /* MainMenu.xib in Resources */,
+				730496E32129F956002D928F /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
