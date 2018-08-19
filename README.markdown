@@ -2,6 +2,6 @@
 
 Preventing iTunes Preview and App Store pages in Safari from launching iTunes since 2010.
 
-## Download and additional information
+## Download
 
-[Visit nomoreitunes.einserver.de](http://nomoreitunes.einserver.de/)
+Currently there is no download, this updated version is in development.
