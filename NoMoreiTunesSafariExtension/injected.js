@@ -62,63 +62,20 @@ const ready = () => {
 			</div>';
 		`;
 	} else {
-		if (document.querySelector('meta[name="ember-cli-head-end"]')) {
-			// This is a new store page
+		if (!document.querySelector('meta[name="ember-cli-head-end"]')) {
+			return;
+		}
 
-			// Checks to see if that this isn't an iOS store page, we don't do anything for them
-			const possibleIOSAlert = document.querySelector('.l-content-width.we-banner');
+		// This is a new store page
 
-			if (possibleIOSAlert !== null && possibleIOSAlert.innerHTML.indexOf('iOS') > -1) {
-				return;
-			}
+		// Checks to see if that this isn't an iOS store page, we don't do anything for them
+		const possibleIOSAlert = document.querySelector('.l-content-width.we-banner');
 
-			if (window.location.href.indexOf('launch=true') === -1) {
-				// Remove the schemes we want to block from the CSP.
-				// See (https://github.com/pichfl/NoMoreiTunes/issues/15#issuecomment-413724332)
-				const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+		if (possibleIOSAlert !== null && possibleIOSAlert.innerHTML.indexOf('iOS') > -1) {
+			return;
+		}
 
-				const newPolicy = csp
-					.getAttribute('content')
-					.replace(' itmss:', '')
-					.replace(' macappstores:', '');
-
-				csp.setAttribute('content', newPolicy);
-
-				// Handle the "View in Mac App Store"/"Listen on Apple Music" button
-				document.addEventListener(
-					'click',
-					event => {
-						if (
-							event.target.classList.contains('we-button__app-text') ||
-							event.target.children[0].classList.contains('we-button__app-text')
-						) {
-							event.stopPropagation();
-
-							window.location.href = '?launch=true'; //We redirect to the same page but with a new URL param
-						}
-					},
-					false
-				);
-
-				// Add our locale.info, have to wait a sec cause Apple's ember app redoes some stuff on the page
-				// TODO: There should be a way to access the Ember app and use the runloop to schedule this, timers are brittle
-				setTimeout(() => {
-					const localNavLinks = document.querySelector('.localnav-actions.we-localnav__actions');
-
-					localNavLinks.innerHTML = `
-						<div class="localnav-action localnav-action-button we-localnav__action" style="padding-right: 25px;">
-							<button class="localnav-button we-button we-button--compact we-button-flat we-button-flat--plain" style="cursor: text;">
-								${locale.info}
-							</button>
-						</div>
-
-						${localNavLinks.innerHTML}
-					`;
-				}, 1000);
-
-				return;
-			}
-
+		if (window.location.href.indexOf('launch=true') > -1) {
 			// This new page doesn't have the schemes blocked so we can now open the desired app
 			const scheme = document.querySelector('.we-button__app-text').innerText.includes('Mac App Store')
 				? 'macappstores'
@@ -127,7 +84,52 @@ const ready = () => {
 			location.href = `${scheme}://${location.host}${location.pathname}`;
 
 			window.history.replaceState({}, document.title, location.href.replace('launch=true', ''));
+
+			return;
 		}
+
+		// Remove the schemes we want to block from the CSP.
+		// See (https://github.com/pichfl/NoMoreiTunes/issues/15#issuecomment-413724332)
+		const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+
+		const newPolicy = csp
+			.getAttribute('content')
+			.replace(' itmss:', '')
+			.replace(' macappstores:', '');
+
+		csp.setAttribute('content', newPolicy);
+
+		// Handle the "View in Mac App Store"/"Listen on Apple Music" button
+		document.addEventListener(
+			'click',
+			event => {
+				if (
+					event.target.classList.contains('we-button__app-text') ||
+					event.target.children[0].classList.contains('we-button__app-text')
+				) {
+					event.stopPropagation();
+
+					window.location.href = '?launch=true'; //We redirect to the same page but with a new URL param
+				}
+			},
+			false
+		);
+
+		// Add our locale.info, have to wait a sec cause Apple's ember app redoes some stuff on the page
+		// TODO: There should be a way to access the Ember app and use the runloop to schedule this, timers are brittle
+		setTimeout(() => {
+			const localNavLinks = document.querySelector('.localnav-actions.we-localnav__actions');
+
+			localNavLinks.innerHTML = `
+				<div class="localnav-action localnav-action-button we-localnav__action" style="padding-right: 25px;">
+					<button class="localnav-button we-button we-button--compact we-button-flat we-button-flat--plain" style="cursor: text;">
+						${locale.info}
+					</button>
+				</div>
+
+				${localNavLinks.innerHTML}
+			`;
+		}, 1000);
 	}
 };
 
