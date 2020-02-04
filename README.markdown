@@ -1,6 +1,9 @@
 # NoMoreiTunes
 
-Preventing iTunes Preview and App Store pages in Safari from launching iTunes since 2010.
+**Safari Extensions require a signed macOS app now, which makes it too much effort to continue this extension. It was nice while it lasted. Thanks for droping by.**
+
+
+Prevented iTunes Preview and App Store pages in Safari from launching iTunes from 2010 to 2018.
 
 ## Changelog
 
